@@ -8,3 +8,8 @@ task(s) at hand:
         iv. zip code
 
 2. take this info to backend to put into the longitude/latitude to weather api
+
+things to try:
+
+1. php?
+2. have a navbar
