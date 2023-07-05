@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template, json, request
-import requests, cgi
+import requests
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -26,11 +26,16 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route("/")
     def home():
-        form = cgi.FieldStorage()
-        address = form.getvalue('zip','ini','city','street')
         return render_template('home.html')
     def weather():
-        api_url=requests.get("https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address={street}{city}{ini}{zip}&benchmark=2020&format=json")
-        api=json.loads(api_url)
+        street = request.form.getlist('street')
+        city = request.form.getlist('city')
+        ini = request.form.getlist('ini')
+        zipcode = request.form.getlist('zip')
+        geo_url=requests.get("https://geocoding.geo.census.gov/geocoder/geographies/address?street=4600+Silver+Hill+Rd&city=Washington&state=DC&benchmark=Public_AR_Census2020&vintage=Census2020_Census2020&layers=10&format=json")
+        geoapi=json.loads(geo_url)
+        for i in geoapi["Census Blocks"]:
+            print(i)
+        weather_url=requests.get("")
     return app
     
