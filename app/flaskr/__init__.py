@@ -32,10 +32,9 @@ def create_app(test_config=None):
         city = request.form.getlist('city')
         ini = request.form.getlist('ini')
         zipcode = request.form.getlist('zip')
-        geo_url=requests.get("https://geocoding.geo.census.gov/geocoder/geographies/address?street=4600+Silver+Hill+Rd&city=Washington&state=DC&benchmark=Public_AR_Census2020&vintage=Census2020_Census2020&layers=10&format=json")
+        geo_url=requests.get("https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address={street}{city}{ini}{zipcode}&benchmark=Public_AR_Census2020&vintage=Census2020_Census2020&layers=10&format=json")
         geoapi=json.loads(geo_url)
         for i in geoapi["Census Blocks"]:
-            print(i)
         weather_url=requests.get("")
     return app
     
