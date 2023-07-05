@@ -1,8 +1,7 @@
 import os
 
-from flask import Flask, render_template
-
-
+from flask import Flask, render_template, json, request
+import requests, cgi
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -27,5 +26,11 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route("/")
     def home():
-        return render_template('index.html')
+        form = cgi.FieldStorage()
+        address = form.getvalue('zip','ini','city','street')
+        return render_template('home.html')
+    def weather():
+        api_url=requests.get("https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address={street}{city}{ini}{zip}&benchmark=2020&format=json")
+        api=json.loads(api_url)
     return app
+    
