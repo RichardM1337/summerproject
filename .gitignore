@@ -167,4 +167,19 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
+#virtual environment stuff
+
+activate
+activate.bat
+Activate.ps1
+deactivate.bat
+flask.exe
+normalizer.exe
+pip.exe
+pip3.10.exe
+pip3.11.exe
+pip3.exe
+python.exe
+pythonw.exe
+
 # End of https://www.toptal.com/developers/gitignore/api/flask
