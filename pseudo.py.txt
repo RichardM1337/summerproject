@@ -1,1 +1,2 @@
 weather = get.weather status(sunny/cloudy whatever)
+if weather == 
