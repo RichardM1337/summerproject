@@ -28,4 +28,11 @@ def create_app(test_config=None):
     @app.route("/")
     def home():
         return render_template('index.html')
+    
+    @app.route("/404")
+    def error():
+        return render_template('404.html')
+
+    @app.route("weather/<path:zip>")
+    
     return app

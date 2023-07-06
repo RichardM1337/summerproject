@@ -1,2 +1,15 @@
 weather = get.weather status(sunny/cloudy whatever)
 if weather == 
+
+
+app route(/weather/<zip>)
+def weather(zip):
+    code that uses the zip code to find the weather of the ziup code
+
+
+
+
+in the html file:
+
+form getz zip and puts it in a variable and the submit button says
+button(<a href="weather/<zip>">submit</a>)
