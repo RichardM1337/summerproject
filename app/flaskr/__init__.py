@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template, json, request
-import requests
+import requests, sys
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -27,15 +27,11 @@ def create_app(test_config=None):
     @app.route("/")
     def home():
         return render_template('home.html')
+    @app.route("/weather/", methods=['GET','POST'])
     def weather():
-        street = request.form.getlist('street')
-        city = request.form.getlist('city')
-        ini = request.form.getlist('ini')
-        zipcode = request.form.getlist('zip')
-        geo_url=requests.get("https://geocoding.geo.census.gov/geocoder/geographies/address?street=4600+Silver+Hill+Rd&city=Washington&state=DC&benchmark=Public_AR_Census2020&vintage=Census2020_Census2020&layers=10&format=json")
+        zipcode = request.form.get('zipcode')
+        geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=no").text
         geoapi=json.loads(geo_url)
-        for i in geoapi["Census Blocks"]:
-            print(i)
-        weather_url=requests.get("")
+        return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
     return app
     

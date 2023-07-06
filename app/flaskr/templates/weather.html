@@ -7,12 +7,9 @@
         <title>Weather</title>
         <link rel="stylesheet" href="./style.css">
     </head>
-    <body>
-        {% block content %}
-        <form action="{{url_for('weather')}}" method="POST">
-            <label for="zipcode">Zip Code:</label> <br>
-            <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
-        </form>
-        {% endblock %}
-    </body>
+<body>
+        <h1>{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}} </h1>
+        <h2>{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}} </h2>
+
+</body>
 </html>
