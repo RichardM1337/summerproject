@@ -1,10 +1,6 @@
-task(s) at hand:
+tasks
 
-1. make a form to take input for geocoder
-    a. make a line for each relevant piece of info
-        i. house (number + road)
-        ii. state (dropdown)
-        iii. city (tell the user that this is case sensitive and should be formatted in this way but wihtout quotes: "Salt Lake City")
-        iv. zip code
-
-2. take this info to backend to put into the longitude/latitude to weather api
+get zipcode
+change url properly
+iterate through dictionaries in a functional way
+do the entire frontend

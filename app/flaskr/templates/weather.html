@@ -1,10 +1,15 @@
-{% extends 'home.html'}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Weather</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
 <body>
-    {% for i in geoapi['current'] %}
-        <h1>{{i['temp_c']}} / {{i['temp_f']}} </h1>
-    {% endfor %}
-    {% for i in geoapi['location']}
-        <h2>{{i['name']}} , {{i['region']}} , {{i['country']}} </h2>
-    {% endfor %}
+        <h1>{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}} </h1>
+        <h2>{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}} </h2>
 
 </body>
+</html>

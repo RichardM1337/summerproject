@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template, json, request
-import requests
+import requests, sys
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -27,12 +27,11 @@ def create_app(test_config=None):
     @app.route("/")
     def home():
         return render_template('home.html')
-    @app.route("/weather/<path:zip>", methods=['GET','POST'])
-    def weather(zip):
-        if request.method == "POST":
-            zip = request.form['zip']
-            geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zip}&aqi=no").text
-            geoapi=json.loads(geo_url)
-        return render_template('weather.html',geoapi=geoapi,zip=zip)
+    @app.route("/weather/", methods=['GET','POST'])
+    def weather():
+        zipcode = request.form.get('zipcode')
+        geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=no").text
+        geoapi=json.loads(geo_url)
+        return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
     return app
     
