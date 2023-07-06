@@ -1,0 +1,10 @@
+{% extends 'home.html'}
+<body>
+    {% for i in geoapi['current'] %}
+        <h1>{{i['temp_c']}} / {{i['temp_f']}} </h1>
+    {% endfor %}
+    {% for i in geoapi['location']}
+        <h2>{{i['name']}} , {{i['region']}} , {{i['country']}} </h2>
+    {% endfor %}
+
+</body>

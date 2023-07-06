@@ -27,14 +27,12 @@ def create_app(test_config=None):
     @app.route("/")
     def home():
         return render_template('home.html')
-    def weather():
-        street = request.form.getlist('street')
-        city = request.form.getlist('city')
-        ini = request.form.getlist('ini')
-        zipcode = request.form.getlist('zip')
-        geo_url=requests.get("https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?address={street}{city}{ini}{zipcode}&benchmark=Public_AR_Census2020&vintage=Census2020_Census2020&layers=10&format=json")
-        geoapi=json.loads(geo_url)
-        for i in geoapi["Census Blocks"]:
-        weather_url=requests.get("")
+    @app.route("/weather/<path:zip>", methods=['GET','POST'])
+    def weather(zip):
+        if request.method == "POST":
+            zip = request.form['zip']
+            geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zip}&aqi=no").text
+            geoapi=json.loads(geo_url)
+        return render_template('weather.html',geoapi=geoapi,zip=zip)
     return app
     
