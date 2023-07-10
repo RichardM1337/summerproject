@@ -1,4 +1,6 @@
 tasks
 
-frontend
-append user input to url
+get zipcode
+change url properly
+iterate through dictionaries in a functional way
+do the entire frontend
