@@ -10,6 +10,14 @@
 <body>
         <h1>{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}} </h1>
         <h2>{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}} </h2>
+        <div class="aqi">
+            <p>{{geoapi['current']['air_quality']['us-epa-index']}}</p>
+        </div>
+        <div class="windspeed">
+            <p>{{geoapi['current']['wind_mph']}}MPH / {{geoapi['current']['wind_kph']}} KPH</p> 
+        </div>
 
 </body>
 </html>
+
+<!-- code|round(amountofdecimalplaces,floor=rounddown, ceil = roundup, common = round normally)-->
