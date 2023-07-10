@@ -30,7 +30,7 @@ def create_app(test_config=None):
     @app.route("/weather/", methods=['GET','POST'])
     def weather():
         zipcode = request.form.get('zipcode')
-        geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=no").text
+        geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
         geoapi=json.loads(geo_url)
         return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
     return app
