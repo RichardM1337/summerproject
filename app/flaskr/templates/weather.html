@@ -1,15 +1,46 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <<meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Weather</title>
-        <link rel="stylesheet" href="./style.css">
-    </head>
-<body>
-        <h1>{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}} </h1>
-        <h2>{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}} </h2>
+  <head>
+    <!-- required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</body>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/app/flaskr/static/css/weather.css">
+    <title>weaether.lmao</title>
+
+  </head>
+  <body>
+    <div class="card" style="width: 18rem;">
+        <img src="(icon)" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-title">current weather</p>
+          <h5 class="card-text">sunny</h5>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+       <img src="..." class="card-img-top" alt="...">
+       <div class="card-body">
+           <p class="card-title">current temp</p>
+           <h5 class="card-text">{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}}</h5>
+       </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+          <p class="card-title">current humidity</p>
+          <h5 class="card-text">12.5%</h5>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+          <p class="card-title">current aqi [us index] </p>
+          <h5 class="card-text">{{geoapi['current']['air_quality']['us-epa-index']}}</h5>
+      </div>
+    </div>
+  </body>
 </html>
+>>>>>>> main
