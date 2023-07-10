@@ -35,3 +35,12 @@ def create_app(test_config=None):
         return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
     return app
     
+#        return render_template('index.html')
+#    
+#    @app.route("/404")
+#    def error():
+#        return render_template('404.html')
+
+#    @app.route("weather/<path:zip>")
+#    
+#    return app
