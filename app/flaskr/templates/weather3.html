@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+{% block head %}
+<link rel="stylesheet" href="/app/flaskr/static/css/weather.css">
+{% endblock %}
+{% block content %}
+<body>
+
+        <h1>{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}} </h1>
+        <h2>{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}} </h2>
+        <div class="aqi">
+            <p>Your Air Quality Index (US) Is: {{geoapi['current']['air_quality']['us-epa-index']}}</p>
+        </div>
+        <div class="windspeed">
+            <p>{{geoapi['current']['wind_mph']}}MPH / {{geoapi['current']['wind_kph']}} KPH</p> 
+        </div>
+
+</body>
+{% endblock %}
+<!-- code|round(amountofdecimalplaces,floor=rounddown, ceil = roundup, common = round normally)-->
