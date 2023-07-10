@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="../static/css/weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>weaether.lmao</title>
+
+  </head>
+  <body>
+    <div class="card" style="width: 18rem;">
+        <img src="{{geoapi['current']['condition']['icon']}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-title">{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}}</p>
+          {% if {{geoapi['current']['condition']['text']}} == "Sunny": %}
+          <h5 class="card-text">Sunny</h5>
+          {% endif %}
+          {% if {{geoapi['current']['condition']['text']}} == "Overcast": %}
+          <h5 class="card-text">Cloudy</h5>
+          {% endif %}
+          {% if {{geoapi['current']['condition']['text']}} == "Partly cloudy": %}
+          <h5 class="card-text">Partly Cloudy</h5>
+          {% endif %}
+          {% if {{geoapi['current']['condition']['text']}} == "Rainy": %}
+          <h5 class="card-text">Rainy</h5>
+          {% endif %}
+          {% if {{geoapi['current']['condition']['text']}} == "Snowy": %}
+          <h5 class="card-text">Snowy</h5>
+          {% endif %}
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+       <img src="..." class="card-img-top" alt="...">
+       <div class="card-body">
+           <p class="card-title">current temp</p>
+           <h5 class="card-text">{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}}</h5>
+       </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+          <p class="card-title">current humidity</p>
+          <h5 class="card-text">{{geoapi['current']['humidity']}}%</h5>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+          <p class="card-title">current aqi</p>
+          <h5 class="card-text">76</h5>
+      </div>
+    </div>
+  </body>
+</html>
