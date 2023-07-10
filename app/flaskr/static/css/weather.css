@@ -1,2 +1,24 @@
-* {
-    font-family: 'Cairo Play', sans-serif;}
+@font-face {
+    font-family: 'Cairo Play', sans-serif;
+    src: 'https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap'
+}
+*
+{font-family: 'Cairo Play', sans-serif;}
+
+body{
+    background-image:url("hud idea.png")
+}
+
+.card{
+    border-radius: 50px;
+    border: 10px solid rgb(26, 182, 109);
+    padding: 10px;
+    transition: all 0.2s ease-out 100ms;
+    flex-direction: row;
+    flex-wrap: wrap; /* allocates extra space in between or around our elements */
+    backdrop-filter: blur(20px) saturate(150%);
+}
+
+.heading{
+    text-align:center;
+}
