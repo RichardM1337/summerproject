@@ -15,7 +15,7 @@
     {% endblock %}
     <body>
         {% block content %}
-        <form action="{{url_for('weather', zipcode=zipcode)}}" method="post">
+        <form method="POST" action="{{url_for('weather', zipcode=zipcode)}}" onsubmit="window.location = 'http://127.0.0.1:5000/weather/' + zipcode.value; return false;">
             <label for="zipcode">Zip Code:</label> <br>
             <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
         </form>

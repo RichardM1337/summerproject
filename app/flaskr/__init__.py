@@ -26,13 +26,8 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route("/")
     def home():
-        if request.method == 'POST':
-            zipcode = request.form['zipcode']
-            return redirect(url_for('dashboard',zipcode=zipcode))
-        else:
-            zipcode = request.args.get('zipcode')
-            return render_template('home.html')
-    @app.route("/weather/<zipcode>", methods=['GET','POST'])
+        return render_template('home.html')
+    @app.route("/weather/<path:zipcode>", methods=['GET','POST'])
     def weather(zipcode):
         zipcode = request.form.get('zipcode')
         geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
