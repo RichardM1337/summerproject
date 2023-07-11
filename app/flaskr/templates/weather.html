@@ -11,45 +11,53 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>weaether.lmao</title>
+    <style>
+      .background--custom {
+        background: linear-gradient(90deg, #4d4d4d, #000000, #222222);
+        background-size: 300% 300%;
+        animation: gradient 4s alternate infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -3;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0%;
+        }
+        100% {
+          background-position: 100%;
+        }
+      }
+      </style>
 
   </head>
   <body>
-    <div class="card" style="width: 18rem;">
+    <div class="background--custom"></div>
+    <div class="card weather-card" style="width: 18rem;">
         <img src="{{geoapi['current']['condition']['icon']}}" class="card-img-top" alt="...">
         <div class="card-body">
           <p class="card-title">{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}}</p>
-          {% if {{geoapi['current']['condition']['text']}} == "Sunny": %}
-          <h5 class="card-text">Sunny</h5>
-          {% endif %}
-          {% if {{geoapi['current']['condition']['text']}} == "Overcast": %}
-          <h5 class="card-text">Cloudy</h5>
-          {% endif %}
-          {% if {{geoapi['current']['condition']['text']}} == "Partly cloudy": %}
-          <h5 class="card-text">Partly Cloudy</h5>
-          {% endif %}
-          {% if {{geoapi['current']['condition']['text']}} == "Rainy": %}
-          <h5 class="card-text">Rainy</h5>
-          {% endif %}
-          {% if {{geoapi['current']['condition']['text']}} == "Snowy": %}
-          <h5 class="card-text">Snowy</h5>
-          {% endif %}
+          <h5 class="card-text">{{ geoapi['current']['condition']['text'] }}</h5>
         </div>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card temperature-card" style="width: 18rem;">
        <img src="..." class="card-img-top" alt="...">
        <div class="card-body">
            <p class="card-title">current temp</p>
            <h5 class="card-text">{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}}</h5>
        </div>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card humidity-card" style="width: 18rem;">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
           <p class="card-title">current humidity</p>
           <h5 class="card-text">{{geoapi['current']['humidity']}}%</h5>
       </div>
     </div>
-    <div class="card" style="width: 18rem;">
+    <div class="card aqi-card" style="width: 18rem;">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
           <p class="card-title">current aqi</p>

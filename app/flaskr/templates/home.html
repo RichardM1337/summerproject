@@ -5,9 +5,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Weather</title>
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/home.css">
+        <style>
+            .background--custom {
+              background-color: #2A2A2A;
+              width: 100vw;
+              height: 100vh;
+              position: absolute;
+              overflow: hidden;
+              z-index: -2;
+              top: 0;
+              left: 0;
+            }
+            canvas#canvas {
+              z-index: -1;
+              position: absolute;
+              width: 100%;
+              height: 60%;
+              transform: rotate(-12deg) scale(2) translateY(-56%);
+              --gradient-color-1: #789CD2; 
+              --gradient-color-2: #00A1FF; 
+              --gradient-color-3: #FFFF00;  
+              --gradient-color-4: #6F6F6F;
+              --gradient-speed: 0.000006;
+            }
+          </style>
     </head>
     <body>
+        <div class="background--custom">
+            <canvas id="canvas" />
+        </div>
+        <script src="https://cdn.jsdelivr.net/gh/greentfrapp/pocoloco@minigl/minigl.js"></script>
+        <script>
+          var gradient = new Gradient();
+          gradient.initGradient("#canvas");
+        </script>
         {% block content %}
         <form action="{{url_for('weather')}}" method="POST">
             <label for="zipcode">Zip Code:</label> <br>
