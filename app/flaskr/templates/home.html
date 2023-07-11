@@ -15,7 +15,7 @@
     {% endblock %}
     <body>
         {% block content %}
-        <form method="POST">
+        <form action="{{url_for('weather', zipcode=zipcode)}}" method="post">
             <label for="zipcode">Zip Code:</label> <br>
             <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
         </form>

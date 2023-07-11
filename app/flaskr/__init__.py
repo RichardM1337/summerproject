@@ -1,7 +1,7 @@
 import os
 
-from flask import Flask, render_template, json, request
-import requests, sys
+from flask import Flask, render_template, json, request, url_for, redirect
+import requests
 def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
@@ -26,16 +26,18 @@ def create_app(test_config=None):
     # a simple page that says hello
     @app.route("/")
     def home():
-        return render_template('home.html')
-    @app.route("/weather/", methods=['GET','POST'])
-    def weather():
-        try:
-            zipcode = request.form.get('zipcode')
-            geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
-            geoapi=json.loads(geo_url)
-            return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
-        except:
-            return render_template('error.html',geoapi=geoapi)
+        if request.method == 'POST':
+            zipcode = request.form['zipcode']
+            return redirect(url_for('dashboard',zipcode=zipcode))
+        else:
+            zipcode = request.args.get('zipcode')
+            return render_template('home.html')
+    @app.route("/weather/<zipcode>", methods=['GET','POST'])
+    def weather(zipcode):
+        zipcode = request.form.get('zipcode')
+        geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
+        geoapi=json.loads(geo_url)
+        return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
     return app
 #        return render_template('index.html')
 #    
