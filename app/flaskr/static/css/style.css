@@ -1,6 +1,9 @@
 @font-face {
     font-family: 'Cairo Play', sans-serif;
-    src: url(cairo_play.woff)
+    src: 'https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap';
+    color:#FFC857;
 }
 *
-{font-family: 'Cairo Play', sans-serif;}
+{font-family: 'Cairo', sans-serif;
+color:#FFC857;
+font-weight: bold;}

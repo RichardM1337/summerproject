@@ -1,22 +1,44 @@
 @font-face {
     font-family: 'Cairo Play', sans-serif;
-    src: 'https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap'
+    src: 'https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap';
+    color:#FFC857;
 }
 *
-{font-family: 'Cairo Play', sans-serif;}
+{font-family: 'Cairo', sans-serif;
+color:rgba(57, 64, 77, 0.75);
+font-weight: bold;}
 
-body{
-    background-image:url("hud idea.png")
+.allcards{
+    align-items:center;
+    display: flex;
 }
-
 .card{
     border-radius: 50px;
-    border: 10px solid rgb(26, 182, 109);
+    border: 10px solid rgb(62, 65, 65);
     padding: 10px;
+    margin:25px;
+    height:25%;
+    width:25%;
     transition: all 0.2s ease-out 100ms;
-    flex-direction: row;
-    flex-wrap: wrap; /* allocates extra space in between or around our elements */
-    backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(30px) saturate(200%);
+    background-color: #FFC857;
+    animation: fadein ease .5s;
+    display:block;
+}
+
+@keyframes fadein{
+    0%{opacity:0}
+    50%{opacity: 0.5;}
+    75%{opacity:0.75}
+    100%{opacity:1}
+  }
+
+.weather,.card-title,.card-text{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width:auto;
+    text-align:center;
 }
 
 .heading{
