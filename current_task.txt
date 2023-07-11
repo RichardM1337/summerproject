@@ -4,5 +4,3 @@ get zipcode
 change url properly
 iterate through dictionaries in a functional way
 do the entire frontend
-
-2. take this info to backend to put into the longitude/latitude to weather api
