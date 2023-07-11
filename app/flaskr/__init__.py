@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, json, request, url_for, redirect
+from flask import Flask, render_template, json, request
 import requests
 def create_app(test_config=None):
     # create and configure the app
@@ -29,7 +29,7 @@ def create_app(test_config=None):
         return render_template('home.html')
     @app.route("/weather/<path:zipcode>", methods=['GET','POST'])
     def weather(zipcode):
-        zipcode = request.form.get('zipcode')
+        zipcode = request.form['zipcode']
         geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
         geoapi=json.loads(geo_url)
         return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
