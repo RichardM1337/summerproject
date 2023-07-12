@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap" rel="stylesheet">
     <title>error</title>
   </head>
-<body>
-    <p>Error 1006</p>
-    <p>invalid zipcode</p>
-</body>
-</html>
+  {% block body %}
+    
+    <h1>Something went wrong maybe</h1>
+    <a href="{{ url_for('home') }}"><p>Click Here</a> To go to the Home Page</p>
+  {% endblock %}

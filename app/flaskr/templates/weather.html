@@ -14,8 +14,9 @@
 
   </head>
   <body>
-    <h1 class="heading">{{geoapi['current']['temp_c']}}C° // {{geoapi['current']['temp_f']}}F° </h1>
-    <h2 class="heading">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
+    <h1 class="heading" id="ziphead"> Your zipcode is {{zipcode}}</h1>
+    <h1 class="heading" id="weatherhead">{{geoapi['current']['temp_c']}}C° // {{geoapi['current']['temp_f']}}F° </h1>
+    <h2 class="heading" id="locationhead">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
     <div class="allcards">
       <div class="card">
         <img src="{{geoapi['current']['condition']['icon']}}" alt="" class="weather">

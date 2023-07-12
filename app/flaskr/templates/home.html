@@ -2,7 +2,7 @@
 <html lang="en">
     {% block head %}
     <head>
-        <<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Weather</title>
@@ -15,10 +15,21 @@
     {% endblock %}
     <body>
         {% block content %}
-        <form method="POST" onsubmit="window.location = 'http://127.0.0.1:5000/weather/' + zipcode.value; return false;">
+        <form method="POST" action="weather/{zipcode}"enctype="multipart/form-data">
             <label for="zipcode">Zip Code:</label> <br>
             <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
         </form>
         {% endblock %}
     </body>
 </html>
+<!-- window.location = 'http://127.0.0.1:5000/weather/' + zipcode.value; return false;"
+    
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" id="zipcode2" name="zipcode2">
+        </form>
+        <script>
+            $('#zipcode').change(function(){
+                 $('#zipcode2').val( $('#zipcode'));
+            });
+        </script>
+-->

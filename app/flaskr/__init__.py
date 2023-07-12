@@ -27,19 +27,13 @@ def create_app(test_config=None):
     @app.route("/")
     def home():
         return render_template('home.html')
-    @app.route("/weather/<path:zipcode>", methods=['GET','POST'])
+    @app.route("/weather/<zipcode>", methods=['GET','POST'])
     def weather(zipcode):
         zipcode = request.form['zipcode']
         geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
         geoapi=json.loads(geo_url)
         return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
+    @app.errorhandler(404)
+    def error(e):
+        return render_template('error.html')
     return app
-#        return render_template('index.html')
-#    
-#    @app.route("/404")
-#    def error():
-#        return render_template('404.html')
-
-#    @app.route("weather/<path:zip>")
-#    
-#    return app

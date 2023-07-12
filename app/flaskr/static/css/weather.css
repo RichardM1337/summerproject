@@ -44,3 +44,10 @@ font-weight: bold;}
 .heading{
     text-align:center;
 }
+#ziphead{
+    font-size:30px;
+    text-align:center;
+}
+#weatherhead{
+    font-size:100px;
+}
