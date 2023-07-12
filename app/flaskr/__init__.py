@@ -31,7 +31,7 @@ def create_app(test_config=None):
         except:
             return redirect("/404")
         
-    @app.route("/weather/", methods=['GET','POST'])
+    @app.route("/weather", methods=['GET','POST'])
     def weather():
         try:
             zipcode = request.form.get('zipcode')

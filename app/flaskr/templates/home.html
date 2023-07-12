@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <<meta charset="UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Weather</title>
-        <link rel="stylesheet" href="../css/home.css">
+        <link rel="stylesheet" href="../static/css/home.css">
         <style>
             .background--custom {
               background-color: #2A2A2A;
@@ -29,11 +29,14 @@
               --gradient-color-4: #6F6F6F;
               --gradient-speed: 0.000006;
             }
-          </style>
+        </style>
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+        </style>
     </head>
     <body>
         <div class="background--custom">
-            <canvas id="canvas" />
+            <canvas id="canvas">
         </div>
         <script src="https://cdn.jsdelivr.net/gh/greentfrapp/pocoloco@minigl/minigl.js"></script>
         <script>
@@ -41,10 +44,14 @@
           gradient.initGradient("#canvas");
         </script>
         {% block content %}
-        <form action="{{url_for('weather')}}" method="POST">
-            <label for="zipcode">Zip Code:</label> <br>
-            <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5">
-        </form>
+        <div class="card triangle" style="width: 25rem; height: 20rem; border-radius: 5%; margin-top: auto; margin-bottom: auto; margin-left: 10%;">
+          <div class="card-body">
+            <form action="{{url_for('weather')}}" method="POST">
+              <p class="card-title" style="font-size: 3rem; font-weight: 500;"><label for="zipcode">Zip Code:</label> <br></p>
+              <p class="card-text" style="font-size: 3rem; font-weight: 500;"><input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5"></p>
+            </form>
+          </div>
+        </div>
         {% endblock %}
     </body>
 </html>
