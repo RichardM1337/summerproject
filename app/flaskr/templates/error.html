@@ -11,7 +11,11 @@
     <title>error</title>
   </head>
   {% block body %}
+    <h1>something went wrong. maybe you..</h1>
+    <ul>
+      <li>entered an invalid zipcode</li>
+      <li>accessed the data website before inputting anything</li>
+    </ul>
     
-    <h1>Something went wrong maybe</h1>
     <a href="{{ url_for('home') }}"><p>Click Here</a> To go to the Home Page</p>
   {% endblock %}

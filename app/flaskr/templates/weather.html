@@ -17,6 +17,7 @@
     <h1 class="heading" id="ziphead"> Your zipcode is {{zipcode}}</h1>
     <h1 class="heading" id="weatherhead">{{geoapi['current']['temp_c']}}C° // {{geoapi['current']['temp_f']}}F° </h1>
     <h2 class="heading" id="locationhead">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
+    <img class="weather" src="https://cdn.weatherapi.com/v4/images/weatherapi_logo.png" alt="weatherapi.com">
     <div class="allcards">
       <div class="card">
         <img src="{{geoapi['current']['condition']['icon']}}" alt="" class="weather">
@@ -28,7 +29,7 @@
       <div class="card">
         <div class="card-body">
             <p class="card-title">Wind Conditions</p>
-            <h5 class="card-text">{{geoapi['current']['wind_mph']}} / {{geoapi['current']['wind_kph']}}</h5>
+            <h5 class="card-text">{{geoapi['current']['wind_mph']}}MPH / {{geoapi['current']['wind_kph']}}KPH</h5>
         </div>
       </div>
       <div class="card">
