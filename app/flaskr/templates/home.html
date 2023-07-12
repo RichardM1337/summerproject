@@ -44,7 +44,7 @@
           gradient.initGradient("#canvas");
         </script>
         {% block content %}
-        <div class="card triangle" style="width: 25rem; height: 20rem; border-radius: 5%; margin-top: auto; margin-bottom: auto; margin-left: 10%;">
+        <div class="card triangle" style="width: 25rem; height: 20rem; border-radius: 5%; margin-top: auto; margin-bottom: auto;">
           <div class="card-body">
             <form action="{{url_for('weather')}}" method="POST">
               <p class="card-title" style="font-size: 3rem; font-weight: 500;"><label for="zipcode">Zip Code:</label> <br></p>

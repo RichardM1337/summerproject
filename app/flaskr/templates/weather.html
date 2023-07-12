@@ -31,35 +31,44 @@
           background-position: 100%;
         }
       }
-      </style>
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+    </style>
 
   </head>
   <body>
     <div class="background--custom"></div>
     <div class="card weather-card" style="width: 18rem; height: 18rem; border-radius: 50%;">
-        <img src="{{geoapi['current']['condition']['icon']}}" class="card-img-top" alt="...">
         <div class="card-body" style="vertical-align: middle; align-self: center;">
-          <p class="card-title">{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}}</p>
-          <h5 class="card-text">{{ geoapi['current']['condition']['text'] }}</h5>
+          <div class="flex-container">
+            <div><p class="card-title">{{geoapi['location']['name']}} , {{geoapi['location']['region']}} , {{geoapi['location']['country']}}</p></div>
+            <div><h5 class="card-text">{{ geoapi['current']['condition']['text'] }}</h5></div>
+            <div><img src="{{geoapi['current']['condition']['icon']}}" class="card-img-top" alt="..."></div>
+          </div>
         </div>
     </div>
-    <div class="card temperature-card" style="width: 18rem;">
+    <div class="card temperature-card" style="width: 12rem; height: 12rem; border-radius: 50%;">
        <div class="card-body">
-           <p class="card-title">current temp</p>
-           <h5 class="card-text">{{geoapi['current']['temp_f']}}° F / {{geoapi['current']['temp_c']}}° C</h5>
-       </div>
+        <div class="flex-container">
+          <div><p class="card-title">current temp</p></div>
+          <div><h5 class="card-text">{{geoapi['current']['temp_f']}}° F / {{geoapi['current']['temp_c']}}° C</h5>
+        </div>
     </div>
-    <div class="card humidity-card" style="width: 18rem;">
+    <div class="card humidity-card" style="width: 12rem; height: 12rem; border-radius: 50%;">
       <div class="card-body">
-          <p class="card-title">current humidity</p>
-          <h5 class="card-text">{{geoapi['current']['humidity']}}%</h5>
+        <div class="flex-container">
+          <div><p class="card-title">current humidity</p></div>
+          <div><h5 class="card-text">{{geoapi['current']['humidity']}}%</h5></div>
+        </div>
       </div>
     </div>
-    <div class="card aqi-card" style="width: 18rem;">
+    <div class="card aqi-card" style="width: 12rem; height: 12rem; border-radius: 50%;">
       <div class="card-body">
           <p class="card-title">current aqi</p>
-          <h5 class="card-text">76</h5>
+          <h5 class="card-text">{{geoapi['current']['air_quality']['us-epa-index']}}</h5>
       </div>
     </div>
+    <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
   </body>
 </html>
