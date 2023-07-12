@@ -21,25 +21,25 @@
       <div class="card">
         <img src="{{geoapi['current']['condition']['icon']}}" alt="" class="weather">
           <div class="card-body">
-            <p class="card-title">current weather</p>
+            <p class="card-title">Current Weather</p>
             <h5 class="card-text">{{geoapi['current']['condition']['text']}}</h5>
           </div>
       </div>
       <div class="card">
         <div class="card-body">
-            <p class="card-title">placeholder</p>
-            <h5 class="card-text">{{geoapi['current']['temp_c']}} / {{geoapi['current']['temp_f']}}</h5>
+            <p class="card-title">Wind Conditions</p>
+            <h5 class="card-text">{{geoapi['current']['wind_mph']}} / {{geoapi['current']['wind_kph']}}</h5>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-            <p class="card-title">current humidity</p>
+            <p class="card-title">Currnet Humidity</p>
             <h5 class="card-text">12.5%</h5>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-            <p class="card-title">current aqi [us index] </p>
+            <p class="card-title">Current AQI [US Index]</p>
             <h5 class="card-text">{{geoapi['current']['air_quality']['us-epa-index']}}</h5>
         </div>
       </div>
