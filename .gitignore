@@ -182,4 +182,9 @@ pip3.exe
 python.exe
 pythonw.exe
 
+#jQuery
+package-lock.json
+package.json
+node_modules/
+
 # End of https://www.toptal.com/developers/gitignore/api/flask

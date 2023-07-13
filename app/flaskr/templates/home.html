@@ -15,7 +15,7 @@
     {% endblock %}
     <body>
         {% block content %}
-        <form method="POST" action="weather/{zipcode}"enctype="multipart/form-data">
+        <form method="GET" action="weather/q"enctype="multipart/form-data">
             <label for="zipcode">Zip Code:</label> <br>
             <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5" required>
         </form>

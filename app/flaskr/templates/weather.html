@@ -14,8 +14,8 @@
 
   </head>
   <body>
-    <h1 class="heading" id="ziphead"> Your zipcode is {{zipcode}}</h1>
     <h1 class="heading" id="weatherhead">{{geoapi['current']['temp_c']}}C° // {{geoapi['current']['temp_f']}}F° </h1>
+    <h2 class="heading" id="feelslikehead">Feels Like: {{geoapi['current']['feelslike_c']}}C° // {{geoapi['current']['feelslike_f']}}F° </h2>
     <h2 class="heading" id="locationhead">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
     <img class="weather" src="https://cdn.weatherapi.com/v4/images/weatherapi_logo.png" alt="weatherapi.com">
     <div class="allcards">
@@ -30,6 +30,15 @@
         <div class="card-body">
             <p class="card-title">Wind Conditions</p>
             <h5 class="card-text">{{geoapi['current']['wind_mph']}}MPH / {{geoapi['current']['wind_kph']}}KPH</h5>
+            {% if geoapi['current']['wind_dir'] == "S"%}
+            <h5 class="card-text"> Direction: South</h5>
+            {% elif geoapi['current']['wind_dir'] == "N"%}
+            <h5 class="card-text"> Direction: North</h5>
+            {% elif geoapi['current']['wind_dir'] == "E"%}
+            <h5 class="card-text"> Direction: East</h5>
+            {% elif geoapi['current']['wind_dir'] == "W"%}
+            <h5 class="card-text"> Direction: West</h5>
+            {% endif %}
         </div>
       </div>
       <div class="card">
@@ -42,6 +51,38 @@
         <div class="card-body">
             <p class="card-title">Current AQI [US Index]</p>
             <h5 class="card-text">{{geoapi['current']['air_quality']['us-epa-index']}}</h5>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+              <div id="myDropdown" class="dropdown-content">
+                <p class="dropbutton">Carbon Monoxide PPM: {{geoapi['current']['air_quality']['co']}}</p>
+                <p class="dropbutton">Nitrogen Dioxide PPM: {{geoapi['current']['air_quality']['no2']}}</p>
+                <p class="dropbutton">Ozone PPM: {{geoapi['current']['air_quality']['o3']}}</p>
+                <p class="dropbutton">Sulfur Dioxide PPM: {{geoapi['current']['air_quality']['so2']}}</p>
+                <p class="dropbutton">Particulate Matter < 2.5 micrometers: {{geoapi['current']['air_quality']['pm2_5']}}</p>
+                <p class="dropbutton">Particulate Matter < 10 micrometers: {{geoapi['current']['air_quality']['pm10']}}</p>
+              </div>
+            </div>
+            <script>
+             /* When the user clicks on the button,
+              toggle between hiding and showing the dropdown content */
+              function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+              }
+
+              // Close the dropdown menu if the user clicks outside of it
+              window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                  var dropdowns = document.getElementsByClassName("dropdown-content");
+                  var i;
+                  for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                    }
+                  }
+                }
+              }
+            </script>
         </div>
       </div>
     </div>

@@ -25,6 +25,10 @@ font-weight: bold;}
     animation: fadein ease .5s;
     display:block;
 }
+.card:hover{
+    border: 10px solid #0f6d5f;
+    transform:scale(1.05)translateY(-15px)
+}
 
 @keyframes fadein{
     0%{opacity:0}
@@ -52,3 +56,53 @@ font-weight: bold;}
 #weatherhead{
     font-size:100px;
 }
+#locationhead{
+   position:absolute;
+   top:-20px;
+   left:0;
+  }
+  .dropbtn {
+    border-radius:50px;
+    background-color: rgb(62, 65, 65);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
