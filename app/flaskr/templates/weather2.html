@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="../static/css/weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>weaether.lmao</title>
+    <style>
+      .background--custom {
+        background: linear-gradient(90deg, #4d4d4d, #000000, #222222);
+        background-size: 300% 300%;
+        animation: gradient 4s alternate infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -3;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0%;
+        }
+        100% {
+          background-position: 100%;
+        }
+      }
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+    </style>
+    <style>
+        .dropbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+        }
+        
+        .dropdown {
+          position: relative;
+          display: inline-block;
+        }
+        
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f1f1f1;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+        
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .dropdown-content a:hover {background-color: #ddd;}
+        
+        .dropdown:hover .dropdown-content {display: block;}
+        
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+        <button class="dropbtn">Location: {{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}}</button>
+        <div class="dropdown-content" style="width: 12rem">
+          <div class="flex-container">
+            <p><img src="{{geoapi['current']['condition']['icon']}}"><br>{{ geoapi['current']['condition']['text'] }}</p>
+            <p>{{geoapi['current']['temp_f']}}° F / {{geoapi['current']['temp_c']}}° C</p>
+            <p>{{geoapi['current']['humidity']}}% Humidity</p>
+            <p>EPA Air Quality Index: {{geoapi['current']['air_quality']['us-epa-index']}}</p>
+          </div>
+        </div>
+    </div>
+</body>
+    <a href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
+  </body>
+</html>

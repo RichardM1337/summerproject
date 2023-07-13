@@ -42,6 +42,25 @@ def create_app(test_config=None):
         except:
             return redirect("/404")
 
+    @app.route("/weather2", methods=['GET','POST'])
+    def weather2():
+        try:
+            zipcode = request.form.get('zipcode')
+            geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
+            geoapi=json.loads(geo_url)
+            return render_template('weather2.html',geoapi=geoapi,zipcode=zipcode)
+        
+        except:
+            return redirect("/404")
+
+    @app.route("/test")
+    def test():
+        try:
+            return render_template("test.html")
+        
+        except:
+            return redirect("/404")
+
     @app.route("/404")
     def error():
         try:
