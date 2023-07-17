@@ -1,8 +1,5 @@
-tasks
+front end is done hooray
+backend is done hooray
+zipcode appends to url hooray]
 
-get zipcode
-change url properly
-iterate through dictionaries in a functional way
-do the entire frontend
-
-2. take this info to backend to put into the longitude/latitude to weather api
+task: maybe try some

@@ -1,6 +1,8 @@
 /* background styles */
 body {
+
     background-color: #ffffff;
+
 }
 
 /* glassmorphism card effect */
@@ -8,7 +10,7 @@ body {
 
     backdrop-filter: blur(9px) saturate(200%);
     -webkit-backdrop-filter: blur(9px) saturate(200%);
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     align-content: center;
@@ -51,7 +53,6 @@ scale: 125%
     align-self: center;
     align-items: center;
     align-content: center;
-    align-tracks: center;
     text-align: center;
     margin-top: 6rem;
 
@@ -59,30 +60,55 @@ scale: 125%
 
 .weather-card {
 
-    position: left 700px;
+    position: relative; 
+    left: 700px;
+    top: 175px;
+    z-index: 5;
 
 }
 
 .temperature-card {
 
-    position: left 0px;
+    position: relative; 
+    left: 600px;
+    bottom: -50px;
+    z-index: 4;
 
 }
 
 .humidity-card {
 
-    position: left 0px;
+    position: relative; 
+    left: 950px;
+    bottom: 200px;
+    z-index: 3;
+    vertical-align: center;
 
 }
 
 .aqi-card {
 
-    position: left 0px;
+    position: relative; 
+    left: 1050px;
+    bottom: 300px;
+    z-index: 2;
 
 }
 
 .cloud-base-card {
 
-    position: left 0px;
+    position: relative; 
+    left: 500px;
+    bottom: 405px;
+    z-index: 1;
+
+}
+
+.api-credit {
+
+    border-width: 2rem;
+    border-radius: 2px;
+    border-color: white;
+    mix-blend-mode: difference;
 
 }
