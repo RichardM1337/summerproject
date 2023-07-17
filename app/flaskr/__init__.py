@@ -22,7 +22,6 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    # a simple page that says hello
     @app.route("/")
     def home():
         try:
@@ -70,13 +69,3 @@ def create_app(test_config=None):
             return redirect("/404")
 
     return app
-    
-#        return render_template('index.html')
-#    
-#    @app.route("/404")
-#    def error():
-#        return render_template('404.html')
-
-#    @app.route("weather/<path:zip>")
-#    
-#    return app

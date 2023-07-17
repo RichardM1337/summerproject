@@ -57,42 +57,32 @@ scale: 125%
 
 }
 
-.flex-container-2 {
-
-    align-self: center;
-    align-items: center;
-    align-content: center;
-    align-tracks: center;
-    text-align: center;
-
-}
-
 .weather-card {
 
-position: left: 200px;
+    position: left 700px;
 
 }
 
 .temperature-card {
 
-
+    position: left 0px;
 
 }
 
 .humidity-card {
 
-
+    position: left 0px;
 
 }
 
 .aqi-card {
 
-
+    position: left 0px;
 
 }
 
 .cloud-base-card {
 
-
+    position: left 0px;
 
 }
