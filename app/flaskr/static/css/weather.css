@@ -17,6 +17,7 @@ p{
     display: flex;
 }
 .card{
+  animation: 0.5s ease-out 0s 1 fadein;
     border-radius: 50px;
     border: 10px solid rgb(62, 65, 65);
     padding: 10px;
