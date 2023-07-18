@@ -8,6 +8,10 @@
 color:rgba(57, 64, 77, 0.75);
 font-weight: bold;}
 
+p{
+  mix-blend-mode:darken;
+}
+
 .allcards{
     align-items:center;
     display: flex;
@@ -20,9 +24,7 @@ font-weight: bold;}
     height:25%;
     width:25%;
     transition: all 0.2s ease-out 100ms;
-    backdrop-filter: blur(30px) saturate(200%);
     background-color: #FFC857;
-    animation: fadein ease .5s;
     display:block;
 }
 .card:hover{
@@ -105,3 +107,5 @@ font-weight: bold;}
   
   /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
   .show {display:block;}
+
+  /*animation: fadein ease .5s; backdrop-filter: blur(30px) saturate(200%); */
