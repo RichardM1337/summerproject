@@ -110,3 +110,13 @@ p{
   .show {display:block;}
 
   /*animation: fadein ease .5s; backdrop-filter: blur(30px) saturate(200%); */
+  .return{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 10px solid rgb(62, 65, 65);
+    color:white
+  }

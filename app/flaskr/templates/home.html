@@ -15,11 +15,20 @@
     <body>
         {% block content %}
         <div class="card">
-            <h1 class="title">Zipcode:</h1>
+            <h1 class="title">Identifier:</h1>
             <form method="GET" action="weather/q"enctype="multipart/form-data">
-            <input type ="number" id="zipcode" name="zipcode" minlength="5" maxlength="5" required>
+            <input type ="input" id="zipcode" name="zipcode" required>
             </form>
         </div>
+        <ul> <p>Supports:</p>
+            <li>Canadian Postal Codes</li>
+            <li>UK Postal Codes</li>
+            <li>Airport Codes</li>
+            <li>Zipcodes</li>
+            <li>Names of Cities</li>
+            <li>Your IP</li>
+        </ul>
+        <a href="/weather/q?zipcode=auto:ip" class="autoip">Click here for automatic services</a>
         {% endblock %}
     </body>
 </html>

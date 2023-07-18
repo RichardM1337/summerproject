@@ -1,6 +1,6 @@
-1. add zipcode to end of url 
-quite possibly by having 2 forms for both get and post since it isn't possible normally
-without jQuery or PHP of course
-
-2. catch error when someone tries to access the data website before
-inputting 
+1. add multiple days parameter for multiple days
+2. potential History
+3. potential hour
+4. potential alerts [eg: alerts for your area]
+5. potential multiple languages
+6. last updated
