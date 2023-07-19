@@ -17,7 +17,7 @@
         <div class="card">
             <h1 class="title">Identifier:</h1>
             <form method="GET" action="weather/q"enctype="multipart/form-data">
-            <input type ="input" id="zipcode" name="zipcode" required>
+            <input type ="input" id="identifier" name="identifier" required>
             </form>
         </div>
         <ul> <p>Supports:</p>
@@ -28,7 +28,7 @@
             <li>Names of Cities</li>
             <li>Your IP</li>
         </ul>
-        <a href="/weather/q?zipcode=auto:ip" class="autoip">Click here for automatic services</a>
+        <a  id="autoip" href="/weather/q?identifier=auto:ip" class="autoip">Click here for automatic services</a>
         {% endblock %}
     </body>
 </html>
@@ -36,7 +36,7 @@
         <form method="POST" enctype="multipart/form-data">
             <input type="hidden" id="zipcode2" name="zipcode2">
         </form>
-        <script>
+        <script> 
             $('#zipcode').change(function(){
                  $('#zipcode2').val( $('#zipcode'));
             });

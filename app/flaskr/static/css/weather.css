@@ -58,11 +58,6 @@ p{
 #weatherhead{
     font-size:100px;
 }
-#locationhead{
-   position:absolute;
-   top:-20px;
-   left:0;
-  }
   .dropbtn {
     border-radius:50px;
     background-color: rgb(62, 65, 65);
@@ -110,13 +105,17 @@ p{
   .show {display:block;}
 
   /*animation: fadein ease .5s; backdrop-filter: blur(30px) saturate(200%); */
-  .return{
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    border: 10px solid rgb(62, 65, 65);
-    color:white
-  }
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(57, 64, 77, 0.5);
+  height:fit-content;
+  border-radius:15px;
+}
+.return, #locationhead{
+  color:white;
+}
+#locationhead{
+  right:25%
+}

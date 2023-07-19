@@ -14,9 +14,12 @@
 
   </head>
   <body>
+    <div class="navbar">
+      <a class="return" href="{{url_for('home')}}">Return to Home</a>
+      <h2 id="locationhead">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
+    </div>
     <h1 class="heading" id="weatherhead">{{geoapi['current']['temp_c']}}C° // {{geoapi['current']['temp_f']}}F° </h1>
     <h2 class="heading" id="feelslikehead">Feels Like: {{geoapi['current']['feelslike_c']}}C° // {{geoapi['current']['feelslike_f']}}F° </h2>
-    <h2 class="heading" id="locationhead">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
     <img class="weather" src="https://cdn.weatherapi.com/v4/images/weatherapi_logo.png" alt="weatherapi.com">
     <div class="allcards">
       <div class="card">
@@ -86,7 +89,6 @@
         </div>
       </div>
     </div>
-    <a class="return" href="{{url_for('home')}}">Return to Home</a>
   </body>
 </html>
 

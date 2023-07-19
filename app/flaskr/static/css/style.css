@@ -28,3 +28,20 @@ font-weight: bold;}
     text-align:center;
     mix-blend-mode:multiply
 }
+#autoip{
+    background-color:#CCCCFF;
+    border-radius: 50px;
+    border: 10px solid rgb(62, 65, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:300px;
+    height:118px;
+    box-shadow: 10px 10px 5px lightblue;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
