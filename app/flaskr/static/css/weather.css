@@ -88,10 +88,14 @@ scale: 125%
 
 .aqi-card {
 
+    /* code for the cloud shape itself*/
     position: relative; 
     left: 1050px;
     bottom: 300px;
     z-index: 2;
+
+    /*silly on hover thing*/
+
 
 }
 

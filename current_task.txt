@@ -2,4 +2,6 @@ front end is done hooray
 backend is done hooray
 zipcode appends to url hooray]
 
-task: maybe try some
+task: make the home page look nice
+
+optional: maybe try some silly css that you will hate yourself for
