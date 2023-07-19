@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Cairo Play', sans-serif;
+    src: 'https://fonts.googleapis.com/css2?family=Cairo+Play:wght@500&display=swap';
+    color:#FFC857;
+}
+*
+{font-family: 'Cairo', sans-serif;
+font-weight: bold;}
+
+.card{
+    background-color:#CCCCFF;
+    border-radius: 50px;
+    border: 10px solid rgb(62, 65, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:300px;
+    height:118px;
+    box-shadow: 10px 10px 5px lightblue;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+.title{
+    text-align:center;
+    mix-blend-mode:multiply
+}
+#autoip{
+    background-color:#CCCCFF;
+    border-radius: 50px;
+    border: 10px solid rgb(62, 65, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:300px;
+    height:118px;
+    box-shadow: 10px 10px 5px lightblue;
+    flex-direction: column;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
