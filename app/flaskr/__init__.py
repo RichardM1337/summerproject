@@ -24,22 +24,18 @@ def create_app(test_config=None):
 
     @app.route("/")
     def home():
-        try:
-            return render_template('home.html')
+        return render_template('home.html')
         
-        except:
-            return redirect("/404")
         
-    @app.route("/weather", methods=['GET','POST'])
-    def weather():
-        try:
-            zipcode = request.form.get('zipcode')
-            geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={zipcode}&aqi=yes").text
-            geoapi=json.loads(geo_url)
-            return render_template('weather.html',geoapi=geoapi,zipcode=zipcode)
-        
-        except:
-            return redirect("/404")
+    @app.route("/weather/<identifier>", methods=['GET','POST'])
+    def weather(identifier):
+        identifier = request.args.get('identifier')
+        geo_url=requests.get(f"http://api.weatherapi.com/v1/current.json?key=581f26cd97c24faa809164418230507&q={identifier}&aqi=yes").text
+        geoapi=json.loads(geo_url)
+        if "error" in geoapi:
+            return render_template('404.html', geoapi=geoapi)
+        else:
+            return render_template('weather.html',geoapi=geoapi)
 
     @app.route("/weather2", methods=['GET','POST'])
     def weather2():
@@ -60,12 +56,8 @@ def create_app(test_config=None):
         except:
             return redirect("/404")
 
-    @app.route("/404")
-    def error():
-        try:
-            render_template("404.html")
-        
-        except:
-            return redirect("/404")
+    @app.errorhandler(404)
+    def error(e):
+        return render_template('404.html')
 
     return app
