@@ -4,3 +4,5 @@
 4. potential alerts [eg: alerts for your area]
 5. potential multiple languages
 6. last updated
+
+3 day forecast
