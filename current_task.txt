@@ -1,0 +1,10 @@
+front end is done hooray
+backend is done hooray
+zipcode appends to url hooray]
+
+tasks:
+
+1. make error page font look nice
+2. make forecast
+
+optional: maybe try some silly css that you will hate yourself for

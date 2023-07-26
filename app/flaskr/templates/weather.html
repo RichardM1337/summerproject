@@ -4,91 +4,84 @@
     <!-- required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <!-- custom css -->
     <link rel="stylesheet" href="../static/css/weather.css">
-    <link rel="stylesheet" href="../static/css/bacco.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>weaether.lmao</title>
+    <style>
+      .background--custom {
+        background: linear-gradient(90deg, #4d4d4d, #000000, #222222);
+        background-size: 300% 300%;
+        animation: gradient 4s alternate infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -3;
+      }
+      @keyframes gradient {
+        0% {
+          background-position: 0%;
+        }
+        100% {
+          background-position: 100%;
+        }
+      }
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+    </style>
 
   </head>
   <body>
-    <div class="navbar">
-      <a class="return" href="{{url_for('home')}}">Return to Home</a>
-      <h2 id="locationhead">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}} </h2>
-    </div>
-    <h1 class="heading" id="weatherhead">{{geoapi['current']['temp_c']}}C° // {{geoapi['current']['temp_f']}}F° </h1>
-    <h2 class="heading" id="feelslikehead">Feels Like: {{geoapi['current']['feelslike_c']}}C° // {{geoapi['current']['feelslike_f']}}F° </h2>
-    <img class="weather" src="https://cdn.weatherapi.com/v4/images/weatherapi_logo.png" alt="weatherapi.com">
-    <div class="allcards">
-      <div class="card">
-        <img src="{{geoapi['current']['condition']['icon']}}" alt="" class="weather">
-          <div class="card-body">
-            <p class="card-title">Current Weather</p>
-            <h5 class="card-text">{{geoapi['current']['condition']['text']}}</h5>
+    <div class="background--custom"></div>
+    <a class="api-credit" href="https://www.weatherapi.com/" title="Free Weather API"><img src='//cdn.weatherapi.com/v4/images/weatherapi_logo.png' alt="Weather data by WeatherAPI.com" border="0"></a>
+    <div class="flex-container-2">
+      <div class="card weather-card" style="width: 18rem; height: 18rem; border-radius: 50%;">
+          <div class="card-body" style="vertical-align: middle; align-self: center;">
+            <div class="flex-container">
+              <h5 class="card-title">{{geoapi['location']['name']}}, {{geoapi['location']['region']}}, {{geoapi['location']['country']}}</h5>
+              <p class="card-text">{{ geoapi['current']['condition']['text'] }}</p>
+              <img src="{{geoapi['current']['condition']['icon']}}" class="card-img-top" alt="...">
+            </div>
           </div>
       </div>
-      <div class="card">
+      <div class="card temperature-card" style="width: 12rem; height: 12rem; border-radius: 50%;">
+         <div class="card-body">
+          <div class="flex-container">
+            <h5 class="card-title">current temp</h5>
+            <p class="card-text">{{geoapi['current']['temp_f']}}° F / {{geoapi['current']['temp_c']}}° C</p>
+          </div>
+         </div>
+      </div>
+      <div class="card humidity-card" style="width: 10rem; height: 10rem; border-radius: 50%;">
         <div class="card-body">
-            <p class="card-title">Wind Conditions</p>
-            <h5 class="card-text">{{geoapi['current']['wind_mph']}}MPH / {{geoapi['current']['wind_kph']}}KPH</h5>
-            {% if geoapi['current']['wind_dir'] == "S"%}
-            <h5 class="card-text"> Direction: South</h5>
-            {% elif geoapi['current']['wind_dir'] == "N"%}
-            <h5 class="card-text"> Direction: North</h5>
-            {% elif geoapi['current']['wind_dir'] == "E"%}
-            <h5 class="card-text"> Direction: East</h5>
-            {% elif geoapi['current']['wind_dir'] == "W"%}
-            <h5 class="card-text"> Direction: West</h5>
-            {% endif %}
+          <div class="flex-container">
+            <h5 class="card-title">current humidity</h5>
+            <p class="card-text">{{geoapi['current']['humidity']}}%</p>
+          </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card aqi-card" style="width: 10rem; height: 10rem; border-radius: 50%;">
         <div class="card-body">
-            <p class="card-title">Current Humidity</p>
-            <h5 class="card-text">12.5%</h5>
+          <div class="flex-container">
+            <h5 class="card-title">current aqi (epa index)</h5>
+            <p class="card-text">{{geoapi['current']['air_quality']['us-epa-index']}}</p>
+          </div>
         </div>
       </div>
-      <div class="card">
+      <div class="card cloud-base-card" style="width: 48rem; height: 15rem; border-radius: 160px; margin-bottom: 1500px;">
         <div class="card-body">
-            <p class="card-title">Current AQI [US Index]</p>
-            <h5 class="card-text">{{geoapi['current']['air_quality']['us-epa-index']}}</h5>
-            <div class="dropdown">
-              <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-              <div id="myDropdown" class="dropdown-content">
-                <p class="dropbutton">Carbon Monoxide PPM: {{geoapi['current']['air_quality']['co']}}</p>
-                <p class="dropbutton">Nitrogen Dioxide PPM: {{geoapi['current']['air_quality']['no2']}}</p>
-                <p class="dropbutton">Ozone PPM: {{geoapi['current']['air_quality']['o3']}}</p>
-                <p class="dropbutton">Sulfur Dioxide PPM: {{geoapi['current']['air_quality']['so2']}}</p>
-                <p class="dropbutton">Particulate Matter < 2.5 micrometers: {{geoapi['current']['air_quality']['pm2_5']}}</p>
-                <p class="dropbutton">Particulate Matter < 10 micrometers: {{geoapi['current']['air_quality']['pm10']}}</p>
-              </div>
-            </div>
-            <script>
-             /* When the user clicks on the button,
-              toggle between hiding and showing the dropdown content */
-              function myFunction() {
-                document.getElementById("myDropdown").classList.toggle("show");
-              }
-
-              // Close the dropdown menu if the user clicks outside of it
-              window.onclick = function(event) {
-                if (!event.target.matches('.dropbtn')) {
-                  var dropdowns = document.getElementsByClassName("dropdown-content");
-                  var i;
-                  for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                      openDropdown.classList.remove('show');
-                    }
-                  }
-                }
-              }
-            </script>
+          <div class="flex-container">
+            <h5 class="card-title"></h5>
+            <p class="card-text"></p>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-

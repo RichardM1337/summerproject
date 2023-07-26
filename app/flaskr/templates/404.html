@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/404.css">
+    <title>error</title>
+  </head>
+  {% block body %}
+    <svg class="background--custom" id="demo" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path fill="#000000" fill-opacity="1" d="M-100 -100L200 -100L200 10L-100 10Z" style="animation: path0 5s linear infinite alternate;" /><path fill="#A100FF" fill-opacity="0.6" d="M-100 -100L200 -100L200 10L-100 10Z" style="animation: path1 12.5s linear infinite alternate;" /><path fill="#FF00FF" fill-opacity="0.2" d="M-100 -100L200 -100L200 10L-100 10Z" style="animation: path2 30s linear infinite alternate;" /><path fill="#FF0000" fill-opacity="0.2" d="M-100 -100L200 -100L200 10L-100 10Z" style="animation: path3 29.41176470588235s linear infinite alternate;" />
+    </svg>
+    
+    <div class="text">
+      <h1>something went wrong. maybe you..</h1>
+      <ul>
+        <li>entered an invalid zipcode</li>
+        <li>entered a place that isn't real</li>
+        <li>accessed the data website before inputting anything</li>
+      </ul>
+      <a href="{{ url_for('home') }}"><p>Click Here</a> To go to the Home Page</p>
+    </div>
+  {% endblock %}
